@@ -318,7 +318,7 @@ def generate(
     if err != 0:
         sys.exit(err)
 
-    primaries_stats_before = es_client.fetch_stats(index_name)["primaries"]
+    #primaries_stats_before = es_client.fetch_stats(index_name)["primaries"]
     org_docs_count = es_client.count_docs(index_name)
 
     doc_generator = FakeDocGenerator(

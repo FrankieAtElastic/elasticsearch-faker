@@ -96,7 +96,7 @@ class ElasticsearchClient(ElasticsearchClientInterface):
                 mappings = json.load(f)
 
         try:
-            result = self.__es.indices.create(index=index_name, body=mappings)
+            result = self.__es.indices.create_data_stream(index=index_name, body=mappings)
             logger.debug(result)
         except AuthenticationException as e:
             logger.error(e)
@@ -176,7 +176,6 @@ class ElasticsearchClient(ElasticsearchClientInterface):
         except NotFoundError as e:
             logger.error(e)
             sys.exit(errno.ENOENT)
-
         return stats["indices"][index_name]
 
 

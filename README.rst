@@ -97,7 +97,7 @@ Command help
 
     Options:
       --index NAME                    Name of an index to create. Defaults to
-                                      'test_index'.
+                                      'test_datastream'.
       --mapping PATH                  Path to a mapping file. See also https://www
                                       .elastic.co/guide/en/elasticsearch/reference
                                       /current/explicit-mapping.html
@@ -129,10 +129,10 @@ Create 1000 docs to an Elasticsearch index
 
         $ elasticsearch-faker generate --doc-template doc_template.jinja2 https://localhost:9200 -n 1000
         document generator #0: 100%|█████████████████████| 1000/1000 [00:01<00:00, 590.53docs/s]
-        [INFO] generate 1000 docs to test_index
+        [INFO] generate 1000 docs to test_datastream
 
         [Results]
-        target index: test_index
+        target index: test_datastream
         completed in 10.4 secs
         current store.size: 3.0 MB
         current docs.count: 1,000
@@ -141,10 +141,10 @@ Create 1000 docs to an Elasticsearch index
         generated docs.count: 1,000
         generated docs/secs: 96.3
         bulk size: 200
-        $ curl -sS localhost:9200/test_index/_search | jq .hits.hits[:2]
+        $ curl -sS localhost:9200/test_datastream/_search | jq .hits.hits[:2]
         [
           {
-            "_index": "test_index",
+            "_index": "test_datastream",
             "_id": "4bdd73c0-7744-4c6f-9736-50e3e8515f1c-0",
             "_score": 1,
             "_source": {
@@ -157,7 +157,7 @@ Create 1000 docs to an Elasticsearch index
             }
           },
           {
-            "_index": "test_index",
+            "_index": "test_datastream",
             "_id": "88238d96-5ecc-4639-bb8f-c3f816027560-0",
             "_score": 1,
             "_source": {
@@ -196,10 +196,10 @@ Use Elasticsearch authentication
       $ export ES_SSL_ASSERT_FINGERPRINT=<HTTP CA certificate SHA-256 fingerprint>
 
       $ elasticsearch-faker --verify-certs generate --doc-template doc_template.jinja2 https://localhost:9200 -n 1000
-      [INFO] generate 1000 docs to test_index
+      [INFO] generate 1000 docs to test_datastream
 
       [Results]
-      target index: test_index
+      target index: test_datastream
       completed in 0.7 secs
       current store.size: 3.9 MB
       current docs.count: 6,000
@@ -209,10 +209,10 @@ Use Elasticsearch authentication
       generated docs/secs: 1,338.6
       bulk size: 200
 
-      $ curl --insecure -sS https://${ES_BASIC_AUTH_USER}:${ES_BASIC_AUTH_PASSWORD}@localhost:9200/test_index/_search | jq .hits.hits[:2]
+      $ curl --insecure -sS https://${ES_BASIC_AUTH_USER}:${ES_BASIC_AUTH_PASSWORD}@localhost:9200/test_datastream/_search | jq .hits.hits[:2]
       [
         {
-          "_index": "test_index",
+          "_index": "test_datastream",
           "_id": "8PMd9ocBtCWmUGxHBM9L",
           "_score": 1,
           "_source": {
@@ -225,7 +225,7 @@ Use Elasticsearch authentication
           }
         },
         {
-          "_index": "test_index",
+          "_index": "test_datastream",
           "_id": "71b76118-91fa-4ed3-a1e0-305694b3d34d-0",
           "_score": 1,
           "_source": {
