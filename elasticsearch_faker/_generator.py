@@ -33,9 +33,9 @@ class FakeDocGenerator:
         for i in range(bulk_size):
             docs.append(
                 {
-                    "index": {
+                    "create": {
                         "_index": self.__index_name,
-                        "_id": f"{self.__id_fake.uuid4()}-{worker_id}",
+                        #"_id": f"{self.__id_fake.uuid4()}-{worker_id}",
                     }
                 }
             )
