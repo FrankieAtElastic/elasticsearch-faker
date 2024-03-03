@@ -376,7 +376,7 @@ def generate(
                 )
                 """
 
-    es_client.refresh(index_name=index_name)
+    #es_client.refresh(index_name=index_name)
 
     store_size_in_bytes = _fetch_store_size_in_bytes(
         es_client, index_name=index_name, min_store_size_in_bytes=num_doc

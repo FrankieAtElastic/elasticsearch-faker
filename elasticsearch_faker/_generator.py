@@ -64,7 +64,7 @@ class FakeDocGenerator:
 
     def __postprocess(self, provider: str, value):
         if isinstance(value, datetime):
-            if provider == "date_time":
+            if provider in ["date_time","date_time_this_month"]:
                 return value.strftime("%Y-%m-%dT%H:%M:%S.000+0000")
                 # value = value.isoformat()
         elif provider == "text":

@@ -97,7 +97,7 @@ class ElasticsearchClient(ElasticsearchClientInterface):
 
         try:
             #result = self.__es.indices.create_data_stream(name=index_name)
-            result = self.__es.indices.create(index=index_name, body=mappings)
+            result = self.__es.indices.create_data_stream(name=index_name)
             logger.debug(result)
         except AuthenticationException as e:
             logger.error(e)

@@ -25,7 +25,7 @@ class TestFakeDocGenerator:
         generator = FakeDocGenerator(
             template=template_text,
             providers=providers,
-            index_name="test_index",
+            index_name="test_datastream",
             fake=fake,
         )
         output = generator.generate_docs(bulk_size=2, worker_id=0)
@@ -33,7 +33,7 @@ class TestFakeDocGenerator:
         assert output == [
             {
                 "index": {
-                    "_index": "test_index",
+                    "_index": "test_datastream",
                     "_id": "e3e70682-c209-4cac-a29f-6fbed82c07cd-0",
                 },
             },
@@ -43,7 +43,7 @@ class TestFakeDocGenerator:
             },
             {
                 "index": {
-                    "_index": "test_index",
+                    "_index": "test_datastream",
                     "_id": "5a921187-19c7-4df4-8f4f-f31e78de5857-0",
                 }
             },
@@ -58,7 +58,7 @@ class TestFakeDocGenerator:
         assert output == [
             {
                 "index": {
-                    "_index": "test_index",
+                    "_index": "test_datastream",
                     "_id": "ab0c1681-c8f8-43d0-9329-0a4cb5d32b16-0",
                 }
             },
@@ -68,7 +68,7 @@ class TestFakeDocGenerator:
             },
             {
                 "index": {
-                    "_index": "test_index",
+                    "_index": "test_datastream",
                     "_id": "ec188efb-d080-466e-952f-233a8c25166a-0",
                 }
             },
